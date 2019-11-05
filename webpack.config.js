@@ -20,7 +20,7 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             }, {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 loader: 'babel-loader',
             }, {
@@ -36,6 +36,7 @@ module.exports = {
     },
     resolve: {
         modules: [path.resolve(__dirname, 'node_modules')],
+        extensions: [".js", ".jsx"]
     },
     plugins: [
         // A webpack plugin to remove/clean the output folder before building
@@ -44,6 +45,7 @@ module.exports = {
     devtool: 'source-map',
     externals: [],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        port: 3000
     }
 };
